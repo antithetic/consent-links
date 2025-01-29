@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "FILOSO&Co.",
   desc: "CONSENT Link Depository - Queer Punk Acid Sweat",
   title: "CONSENT Link Depository",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "",
   lightAndDarkMode: false,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes

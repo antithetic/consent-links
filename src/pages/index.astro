@@ -1,13 +1,22 @@
 ---
 import Layout from "@layouts/LinksLayout.astro";
+import Header from "@components/LinksHeader.astro";
+import Footer from "@components/LinksFooter.astro";
 import { Button } from "@components/ui/button";
 ---
 
 <Layout>
-  <div class="container flex flex-col max-w-md mx-auto bg-slate-100">
-    <h1 class="text-3xl text-slate-950 text-center">CONSENT Link Depository</h1>
-    <div class="links flex flex-col gap-5">
-      <Button>HELLOW</Button>
+  <div class="container flex flex-col max-w-md mx-auto pt-5 bg-slate-100">
+    <Header />
+    <div class="links flex flex-col gap-5 py-5 px-5">
+      <Button>Soundcloud</Button>
     </div>
+    <Footer />
   </div>
 </Layout>
+
+<style>
+  body {
+    background-color: #a6f257;
+  }
+</style>

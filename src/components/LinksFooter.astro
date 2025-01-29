@@ -1,0 +1,16 @@
+---
+import Socials from "./Socials.astro";
+import { Instagram } from "lucide-astro";
+import { Mail } from "lucide-astro";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="socials flex flex-col justify-center mb-5 gap-3">
+  <div class="flex justify-center gap-3">
+    <Instagram />
+    <Mail />
+  </div>
+  <div class="copyright flex justify-center">
+    <span>Copyright &#169; {currentYear}</span>
+  </div>
+</footer>
