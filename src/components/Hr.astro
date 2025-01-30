@@ -4,9 +4,9 @@ export interface Props {
   ariaHidden?: boolean;
 }
 
-const { noPadding = false, ariaHidden = true } = Astro.props;
+const { ariaHidden = true } = Astro.props;
 ---
 
-<div class={`max-w-3xl mx-auto ${noPadding ? "px-0" : "px-4"}`}>
-  <hr class="border-skin-line" aria-hidden={ariaHidden} />
+<div class="mx-auto px-5">
+  <hr class="border-solid border-gray-300" aria-hidden={ariaHidden} />
 </div>

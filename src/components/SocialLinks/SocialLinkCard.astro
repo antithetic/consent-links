@@ -1,6 +1,5 @@
 ---
-// src/components/SocialLinkCard.astro
-import type { SocialLink, CardStyle } from "../../types";
+import type { SocialLink } from "../../types";
 import BackgroundPattern from "./BackgroundPattern.astro";
 
 interface Props {
@@ -9,7 +8,6 @@ interface Props {
 
 const { link } = Astro.props;
 
-// Platform display names
 const platformNames = {
   soundcloud: "Soundcloud",
   instagram: "Instagram",
@@ -20,7 +18,6 @@ const platformNames = {
   custom: "",
 };
 
-// Platform icons (single letters for simplicity, could be replaced with actual icons)
 const platformIcons = {
   soundcloud: "S",
   instagram: "I",
@@ -31,36 +28,19 @@ const platformIcons = {
   custom: "•",
 };
 
-// Default styles
-const defaultCardStyle: CardStyle = {
-  background: "white",
-  hoverBackground: "white",
-  textColor: "black",
-  borderColor: "black",
-  borderWidth: "3px",
-  borderStyle: "solid",
-  borderRadius: "0px",
-  shadow: "4px 4px 0px 0px rgba(0,0,0,1)",
-  padding: "16px",
+const platformStyles = {
+  soundcloud: "bg-[#ff5500]",
+  instagram: "bg-[#e4405f]",
+  ra: "bg-[#000000]",
+  mixcloud: "bg-[#52aad8]",
+  threads: "bg-[#000000]",
+  twitter: "bg-[#1da1f2]",
+  custom: "bg-black",
 };
-
-const defaultIconStyle: CardStyle = {
-  background:
-    link.platform === "custom"
-      ? "#000000"
-      : `var(--${link.platform}-color, #000000)`,
-  iconTextColor: "white",
-  borderColor: "black",
-  borderWidth: "2px",
-  borderRadius: "8px",
-};
-
-// Merge custom styles with defaults
-const cardStyle = { ...defaultCardStyle, ...link.customStyle };
-const iconStyle = { ...defaultIconStyle, ...link.customIconStyle };
 
 const displayName = link.label || platformNames[link.platform];
 const icon = link.icon || platformIcons[link.platform];
+const platformBg = platformStyles[link.platform];
 ---
 
 <a
@@ -70,17 +50,24 @@ const icon = link.icon || platformIcons[link.platform];
   rel="noopener noreferrer"
 >
   <div
-    class="relative transition-all duration-150 hover:-translate-y-0.5"
-    style={{
-      background: cardStyle.background,
-      color: cardStyle.textColor,
-      borderColor: cardStyle.borderColor,
-      borderWidth: cardStyle.borderWidth,
-      borderStyle: cardStyle.borderStyle,
-      borderRadius: cardStyle.borderRadius,
-      boxShadow: cardStyle.shadow,
-      padding: cardStyle.padding,
-    }}
+    class={`
+    flex items-center  whitespace-nowrap rounded-base
+    text-sm font-base ring-offset-white transition-all gap-2
+    [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2
+    disabled:pointer-events-none disabled:opacity-50
+    text-mtext bg-main border-2 border-border shadow-shadow
+    hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none
+    h-10 px-4 py-2 overflow-hidden 
+    relative
+    ${link.customStyle?.background ? "" : "bg-main"}
+    ${link.customStyle?.textColor ? "" : "text-mtext"}
+    ${link.customStyle?.borderColor ? "" : "border-border"}
+    ${link.customStyle?.borderWidth ? "" : "border-2"}
+    ${link.customStyle?.borderRadius ? "" : "rounded-base"}
+    ${link.customStyle?.padding ? "" : "px-4 py-2"}
+  `}
+    style={link.customStyle}
   >
     {
       link.bgPattern && (
@@ -93,18 +80,28 @@ const icon = link.icon || platformIcons[link.platform];
     }
     <div class="flex items-center gap-3 relative">
       <div
-        class="w-12 h-12 flex items-center justify-center transition-colors"
-        style={{
-          background: iconStyle.background,
-          color: iconStyle.iconTextColor,
-          borderColor: iconStyle.borderColor,
-          borderWidth: iconStyle.borderWidth,
-          borderRadius: iconStyle.borderRadius,
-        }}
+        class={`
+        w-12 
+        h-12 
+        flex 
+        items-center 
+        justify-center 
+        transition-colors
+        border-0
+        
+
+        ${platformBg}
+        ${link.customIconStyle?.background ? "" : platformBg}
+        ${link.customIconStyle?.iconTextColor ? "" : "text-white"}
+        ${link.customIconStyle?.borderColor ? "" : "border-border"}
+        ${link.customIconStyle?.borderWidth ? "" : "border-0"}
+        ${link.customIconStyle?.borderRadius ? "" : "rounded-lg"}
+      `}
+        style={link.customIconStyle}
       >
-        <span class="font-bold text-xl">{icon}</span>
+        <span class="font-bold">{icon}</span>
       </div>
-      <span class="font-semibold text-xl">{displayName}</span>
+      <span class="font-semibold">{displayName}</span>
     </div>
   </div>
 </a>

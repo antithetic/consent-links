@@ -62,8 +62,10 @@ const quotes = [
 const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 ---
 
-<div class="StoicQuote flex justify-center">
-  <p class="text-lg italic">{randomQuote}</p>
+<div class="StoicQuote flex justify-center my-5">
+  <p class="text-lg italic">
+    <span class="underline font-light border-dotted">{randomQuote}</span>
+  </p>
 </div>
 
 <style>
