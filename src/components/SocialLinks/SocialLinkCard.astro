@@ -1,0 +1,110 @@
+---
+// src/components/SocialLinkCard.astro
+import type { SocialLink, CardStyle } from "../../types";
+import BackgroundPattern from "./BackgroundPattern.astro";
+
+interface Props {
+  link: SocialLink;
+}
+
+const { link } = Astro.props;
+
+// Platform display names
+const platformNames = {
+  soundcloud: "Soundcloud",
+  instagram: "Instagram",
+  ra: "Resident Advisor",
+  mixcloud: "Mixcloud",
+  threads: "Threads",
+  twitter: "Twitter",
+  custom: "",
+};
+
+// Platform icons (single letters for simplicity, could be replaced with actual icons)
+const platformIcons = {
+  soundcloud: "S",
+  instagram: "I",
+  ra: "RA",
+  mixcloud: "M",
+  threads: "T",
+  twitter: "T",
+  custom: "•",
+};
+
+// Default styles
+const defaultCardStyle: CardStyle = {
+  background: "white",
+  hoverBackground: "white",
+  textColor: "black",
+  borderColor: "black",
+  borderWidth: "3px",
+  borderStyle: "solid",
+  borderRadius: "0px",
+  shadow: "4px 4px 0px 0px rgba(0,0,0,1)",
+  padding: "16px",
+};
+
+const defaultIconStyle: CardStyle = {
+  background:
+    link.platform === "custom"
+      ? "#000000"
+      : `var(--${link.platform}-color, #000000)`,
+  iconTextColor: "white",
+  borderColor: "black",
+  borderWidth: "2px",
+  borderRadius: "8px",
+};
+
+// Merge custom styles with defaults
+const cardStyle = { ...defaultCardStyle, ...link.customStyle };
+const iconStyle = { ...defaultIconStyle, ...link.customIconStyle };
+
+const displayName = link.label || platformNames[link.platform];
+const icon = link.icon || platformIcons[link.platform];
+---
+
+<a
+  href={link.url}
+  class="block group"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div
+    class="relative transition-all duration-150 hover:-translate-y-0.5"
+    style={{
+      background: cardStyle.background,
+      color: cardStyle.textColor,
+      borderColor: cardStyle.borderColor,
+      borderWidth: cardStyle.borderWidth,
+      borderStyle: cardStyle.borderStyle,
+      borderRadius: cardStyle.borderRadius,
+      boxShadow: cardStyle.shadow,
+      padding: cardStyle.padding,
+    }}
+  >
+    {
+      link.bgPattern && (
+        <BackgroundPattern
+          type={link.bgPattern.type}
+          color={link.bgPattern.color}
+          opacity={link.bgPattern.opacity}
+        />
+      )
+    }
+    <div class="flex items-center gap-3 relative">
+      <div
+        class="w-12 h-12 flex items-center justify-center transition-colors"
+        style={{
+          background: iconStyle.background,
+          color: iconStyle.iconTextColor,
+          borderColor: iconStyle.borderColor,
+          borderWidth: iconStyle.borderWidth,
+          borderRadius: iconStyle.borderRadius,
+        }}
+      >
+        <span class="font-bold text-xl">{icon}</span>
+      </div>
+      <span class="font-semibold text-xl">{displayName}</span>
+    </div>
+  </div>
+</a>

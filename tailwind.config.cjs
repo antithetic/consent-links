@@ -24,6 +24,48 @@ module.exports = {
 			border: 'var(--border)',
 			ring: 'var(--ring)',
 			ringOffset: 'var(--ring-offset)',
+			// Soundcloud Theme
+			soundcloud: {
+				DEFAULT: '#ff5500',
+				hover: '#ff7733',
+				text: '#ffffff',
+				border: '#000000',
+			  },
+			  // Instagram Theme
+			  instagram: {
+				DEFAULT: '#E4405F',
+				hover: '#e65d77',
+				text: '#ffffff',
+				border: '#000000',
+			  },
+			  // Resident Advisor Theme
+			  ra: {
+				DEFAULT: '#000000',
+				hover: '#333333',
+				text: '#ffffff',
+				border: '#ffffff',
+			  },
+			  // Mixcloud Theme
+			  mixcloud: {
+				DEFAULT: '#52aad8',
+				hover: '#73bce0',
+				text: '#ffffff',
+				border: '#000000',
+			  },
+			  // Threads Theme
+			  threads: {
+				DEFAULT: '#000000',
+				hover: '#333333',
+				text: '#ffffff',
+				border: '#ffffff',
+			  },
+			  // Twitter Theme
+			  twitter: {
+				DEFAULT: '#1DA1F2',
+				hover: '#4db5f5',
+				text: '#ffffff',
+				border: '#000000',
+			  },
 			
 			secondaryBlack: '#212121', 
 		  },

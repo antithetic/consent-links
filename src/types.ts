@@ -17,3 +17,44 @@ export type SocialObjects = {
   active: boolean;
   linkTitle: string;
 }[];
+
+// src/types/social.ts
+
+export type SocialPlatform =
+  | "soundcloud"
+  | "instagram"
+  | "ra"
+  | "mixcloud"
+  | "threads"
+  | "twitter"
+  | "custom";
+
+export type CardStyle = {
+  background?: string;
+  hoverBackground?: string;
+  textColor?: string;
+  borderColor?: string;
+  borderWidth?: string;
+  borderStyle?: string;
+  borderRadius?: string;
+  shadow?: string;
+  iconBackground?: string;
+  iconHoverBackground?: string;
+  iconTextColor?: string;
+  padding?: string;
+};
+
+export interface SocialLink {
+  platform: SocialPlatform;
+  username: string;
+  url: string;
+  label?: string;
+  icon?: string;
+  customStyle?: CardStyle;
+  customIconStyle?: CardStyle;
+  bgPattern?: {
+    type: "dots" | "lines" | "squares" | "noise";
+    color?: string;
+    opacity?: string;
+  };
+}

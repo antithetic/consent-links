@@ -2,15 +2,90 @@
 import Layout from "@layouts/LinksLayout.astro";
 import Header from "@components/LinksHeader.astro";
 import Footer from "@components/LinksFooter.astro";
+import SocialLinks from "@components/SocialLinks/SocialLinks.astro";
+import StoicQuote from "@components/StoicQuote.astro";
+import type { SocialLink } from "../types";
 import { Button } from "@components/ui/button";
+
+const socialLinks: SocialLink[] = [
+  {
+    platform: "soundcloud",
+    username: "cholofetish",
+    url: "https://soundcloud.com/cholofetish",
+  },
+  {
+    platform: "instagram",
+    username: "antithetic",
+    url: "https://instagram.com/antithetic",
+  },
+  {
+    platform: "ra",
+    username: "filoso",
+    url: "https://ra.co/dj/filoso",
+    label: "Resident Advisor",
+  },
+  {
+    platform: "mixcloud",
+    username: "attacks",
+    url: "https://www.mixcloud.com/attacks",
+  },
+  {
+    platform: "threads",
+    username: "antithetic",
+    url: "https://threads.net/@antithetic",
+  },
+  {
+    platform: "twitter",
+    username: "attacks",
+    url: "https://twitter.com/attacks",
+  },
+  // Custom styled link
+  {
+    platform: "instagram",
+    username: "djusername",
+    url: "https://instagram.com/djusername",
+    customStyle: {
+      background:
+        "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
+      textColor: "white",
+      borderColor: "#dc2743",
+    },
+    bgPattern: {
+      type: "dots",
+      color: "#ffffff",
+      opacity: "0.5",
+    },
+  },
+  // Fully custom link
+  {
+    platform: "custom",
+    username: "custom",
+    url: "https://example.com",
+    label: "My Website",
+    icon: "🌐",
+    customStyle: {
+      background: "#2a2a2a",
+      textColor: "#ffffff",
+      shadow: "4px 4px 0px 0px rgba(74,74,74,1)",
+    },
+    bgPattern: {
+      type: "noise",
+      color: "#ffffff",
+      opacity: "0.05",
+    },
+  },
+];
 ---
 
 <Layout>
-  <div class="container flex flex-col max-w-md mx-auto pt-5 bg-slate-100">
+  <div class="container flex flex-col max-w-md mx-auto mt-5 pt-10 bg-slate-100">
     <Header />
-    <div class="links flex flex-col gap-5 py-5 px-5">
+    <StoicQuote />
+    <main class="SocialLinks flex flex-col gap-5 my-5 mx-5">
       <Button>Soundcloud</Button>
-    </div>
+      <SocialLinks links={socialLinks} />
+    </main>
+
     <Footer />
   </div>
 </Layout>

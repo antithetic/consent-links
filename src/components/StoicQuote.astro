@@ -1,0 +1,73 @@
+---
+// Supports weights 100-400
+import "@fontsource-variable/playwrite-de-la";
+export const prerender = false; // Forces a fresh quote on every request
+
+const quotes = [
+  "Fate snarls. You snarl back.",
+  "Pain drips. Endure, keep walking.",
+  "Wind howls. You remain unmoved.",
+  "Flesh rots. Virtue stays put.",
+  "Money screams. Ignore its teeth.",
+  "Time eats. You still breathe.",
+  "Fear knocks. Open, say nothing.",
+  "Fire burns. Don't flinch.",
+  "Desires coil. Cut the head.",
+  "Death grins. Smile wider.",
+  "Power tempts. Step over it.",
+  "Love fades. Self stays steady.",
+  "Want drags. Let it drown.",
+  "Silence speaks. You listen.",
+  "Fortune rolls. You stand.",
+  "Chaos dances. Don't join in.",
+  "Body breaks. Mind stays sharp.",
+  "Loss stabs. No bleeding.",
+  "Anger bites. Don't taste.",
+  "Roads fork. Walk straight.",
+  "Weakness whispers. Don't reply.",
+  "Tomorrow lies. Now is real.",
+  "Ghosts talk. Don't believe.",
+  "Lies stretch. Truth snaps back.",
+  "Echoes fade. Words remain.",
+  "Control nothing. Own yourself.",
+  "Eyes open. Mind clear.",
+  "Gold blinds. Look past.",
+  "Night falls. Keep walking.",
+  "Hunger gnaws. Spirit feasts.",
+  "Fists clench. Open hands.",
+  "Blood dries. Will remains.",
+  "Sun sets. Stand firm.",
+  "Walls crack. Don't crumble.",
+  "No path? Cut through.",
+  "Weak men drown. Swim on.",
+  "Greed whispers. Silence it.",
+  "Nothing lasts. Stay steady.",
+  "Words twist. Truth remains.",
+  "Broken mirrors. Same reflection.",
+  "Bones dust. Soul intact.",
+  "Cold wind. Warm heart.",
+  "Faces shift. Stay still.",
+  "Shadows stretch. Light remains.",
+  "A tourist in your thoughts",
+  "No chains. Still trapped.",
+  "Quiet room. Loud mind.",
+  "Smoke rises. Fire dies.",
+  "War rages. Stay calm.",
+  "Past lingers. Walk on.",
+  "Eyes blink. Eternity waits.",
+  "No map. Keep moving.",
+  "The end? Just beginning.",
+];
+
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+---
+
+<div class="StoicQuote flex justify-center">
+  <p class="text-lg italic">{randomQuote}</p>
+</div>
+
+<style>
+  .StoicQuote {
+    font-family: "Playwrite DE LA Variable", cursive;
+  }
+</style>

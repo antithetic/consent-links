@@ -1,0 +1,15 @@
+---
+// src/components/SocialLinks.astro
+import type { SocialLink } from "../../types";
+import SocialLinkCard from "./SocialLinkCard.astro";
+
+interface Props {
+  links: SocialLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="flex gap-6 flex-col">
+  {links.map(link => <SocialLinkCard link={link} />)}
+</div>
