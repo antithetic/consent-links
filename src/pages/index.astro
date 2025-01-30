@@ -4,9 +4,9 @@ import Header from "@components/LinksHeader.astro";
 import Footer from "@components/LinksFooter.astro";
 import SocialLinks from "@components/SocialLinks/SocialLinks.astro";
 import StoicQuote from "@components/StoicQuote.astro";
-import Hr from "@components/Hr.astro";
+import HeaderQuote from "@components/HeaderQuote.astro";
+
 import type { SocialLink } from "../types";
-import { Button } from "@components/ui/button";
 
 const socialLinks: SocialLink[] = [
   {
@@ -79,9 +79,9 @@ const socialLinks: SocialLink[] = [
 ---
 
 <Layout>
-  <div class="container flex flex-col max-w-md mx-auto mt-5 pt-10 bg-slate-100">
+  <div class="container flex flex-col max-w-md mx-auto mt-5 pt-10">
     <Header />
-
+    <HeaderQuote> Queer. Punk. Acid. Sweat.</HeaderQuote>
     <main class="SocialLinks flex flex-col gap-5 my-5 mx-5">
       <SocialLinks links={socialLinks} />
     </main>
