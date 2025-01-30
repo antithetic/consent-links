@@ -10,35 +10,42 @@ import type { SocialLink } from "../types";
 
 const socialLinks: SocialLink[] = [
   {
-    platform: "soundcloud",
-    username: "cholofetish",
-    url: "https://soundcloud.com/cholofetish",
-  },
-  {
     platform: "instagram",
     username: "antithetic",
     url: "https://instagram.com/antithetic",
+    active: true,
   },
+  {
+    platform: "soundcloud",
+    username: "cholofetish",
+    url: "https://soundcloud.com/cholofetish",
+    active: true,
+  },
+
   {
     platform: "ra",
     username: "filoso",
     url: "https://ra.co/dj/filoso",
     label: "Resident Advisor",
+    active: true,
   },
   {
     platform: "mixcloud",
     username: "attacks",
     url: "https://www.mixcloud.com/attacks",
+    active: true,
   },
   {
     platform: "threads",
     username: "antithetic",
     url: "https://threads.net/@antithetic",
+    active: true,
   },
   {
     platform: "twitter",
     username: "attacks",
     url: "https://twitter.com/attacks",
+    active: true,
   },
   // Custom styled link
   {
@@ -56,6 +63,7 @@ const socialLinks: SocialLink[] = [
       color: "#ffffff",
       opacity: "0.5",
     },
+    active: true,
   },
   // Fully custom link
   {
@@ -66,7 +74,7 @@ const socialLinks: SocialLink[] = [
     icon: "🌐",
     customStyle: {
       background: "#2a2a2a",
-      textColor: "#ffffff",
+      textColor: "#FFFFFF",
       shadow: "4px 4px 0px 0px rgba(74,74,74,1)",
     },
     bgPattern: {
@@ -74,6 +82,7 @@ const socialLinks: SocialLink[] = [
       color: "#ffffff",
       opacity: "0.05",
     },
+    active: true,
   },
 ];
 ---

@@ -101,7 +101,9 @@ const platformBg = platformStyles[link.platform];
       >
         <span class="font-bold">{icon}</span>
       </div>
-      <span class="font-semibold">{displayName}</span>
+      <span class="font-semibold ${link.customStyle?.textColor}"
+        >{displayName}</span
+      >
     </div>
   </div>
 </a>

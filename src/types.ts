@@ -50,6 +50,7 @@ export interface SocialLink {
   url: string;
   label?: string;
   icon?: string;
+  active: boolean;
   customStyle?: CardStyle;
   customIconStyle?: CardStyle;
   bgPattern?: {
