@@ -1,6 +1,6 @@
 ---
 // Supports weights 100-900
-import "@fontsource-variable/work-sans";
+import "@fontsource-variable/outfit";
 import { LOCALE, SITE } from "@config";
 import "@styles/links.css";
 import { ViewTransitions } from "astro:transitions";
@@ -113,5 +113,9 @@ const socialImageURL = new URL(
   </head>
   <body class="py-10 px-5">
     <slot />
-  </body>
+  </body><style>
+    body {
+      font-family: "Outfit Variable", sans-serif;
+    }
+  </style>
 </html>

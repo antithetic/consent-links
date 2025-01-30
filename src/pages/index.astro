@@ -5,7 +5,7 @@ import Footer from "@components/LinksFooter.astro";
 import SocialLinks from "@components/SocialLinks/SocialLinks.astro";
 import StoicQuote from "@components/StoicQuote.astro";
 import HeaderQuote from "@components/HeaderQuote.astro";
-
+import SocialIcons from "@components/SocialIcons.astro";
 import type { SocialLink } from "../types";
 
 const socialLinks: SocialLink[] = [
@@ -82,6 +82,7 @@ const socialLinks: SocialLink[] = [
   <div class="container flex flex-col max-w-md mx-auto mt-5 pt-10">
     <Header />
     <HeaderQuote> Queer. Punk. Acid. Sweat.</HeaderQuote>
+    <SocialIcons />
     <main class="SocialLinks flex flex-col gap-5 my-5 mx-5">
       <SocialLinks links={socialLinks} />
     </main>
@@ -93,5 +94,13 @@ const socialLinks: SocialLink[] = [
 <style>
   body {
     background-color: #a6f257;
+  }
+  .container {
+    --mask: radial-gradient(14.14px at 50% 20px, #000 99%, #0000 101%)
+        calc(50% - 20px) 0/40px 100%,
+      radial-gradient(14.14px at 50% -10px, #0000 99%, #000 101%) 50% 10px/40px
+        100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
   }
 </style>
